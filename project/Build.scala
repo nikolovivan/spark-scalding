@@ -13,7 +13,16 @@ object ProjectBuild extends Build {
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-target:jvm-1.6"),
     publishMavenStyle := true,
     pomIncludeRepository := { x => false },
-    publishArtifact in Test := false
+    publishArtifact in Test := false,
+    publishTo <<= version { (v: String) =>
+      if (v.trim.endsWith("SNAPSHOT"))
+        Some("tresata-snapshots" at "http://server01:8080/archiva/repository/snapshots")
+      else
+        Some("tresata-releases"  at "http://server01:8080/archiva/repository/internal")
+    },
+    credentials += Credentials(Path.userHome / ".m2" / "credentials_internal"),
+    credentials += Credentials(Path.userHome / ".m2" / "credentials_snapshots"),
+    credentials += Credentials(Path.userHome / ".m2" / "credentials_proxy")
   )
 
   lazy val project = Project(
