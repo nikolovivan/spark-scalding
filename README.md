@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tresata/spark-scalding.svg?branch=master)](https://travis-ci.org/tresata/spark-scalding)
+[![Build Status](https://travis-ci.org/tresata/spark-scalding.svg?branch=tresata)](https://travis-ci.org/tresata/spark-scalding)
 
 # spark-scalding
 Spark-scalding is a library that aims to make the transition from Cascading/Scalding to Spark a little easier by adding support for Cascading Taps, Scalding Sources and the Scalding Fields API in Spark.
